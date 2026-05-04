@@ -1,0 +1,147 @@
+/* =============================================================
+   Optmizy | Digital Innovation Studio
+   Custom Stylesheet
+   ============================================================= */
+
+/* ── Global ──────────────────────────────────────────────── */
+*, *::before, *::after {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+::selection { background-color: rgba(145, 213, 31, 0.3); }
+
+/* ── Logo ─────────────────────────────────────────────────── */
+.logo-container { display: flex; align-items: center; }
+
+.o-icon {
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  background: transparent;
+  position: relative;
+  border: 7px solid transparent;
+  background-clip: padding-box;
+  margin-right: 4px;
+  flex-shrink: 0;
+}
+.o-icon::before {
+  content: '';
+  position: absolute;
+  inset: -7px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from -60deg,
+    #29B6F6 0% 10%,
+    #4DD0E1 10% 20%,
+    #91D51F 30% 80%,
+    #29B6F6 95% 100%
+  );
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 8px), #000 calc(100% - 7px));
+  mask:         radial-gradient(farthest-side, transparent calc(100% - 8px), #000 calc(100% - 7px));
+  z-index: 1;
+}
+
+.logo-text {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 56px;
+  font-weight: 700;
+  color: #91D51F;
+  line-height: 1;
+  letter-spacing: -2px;
+  padding-top: 4px;
+}
+
+/* ── Cards ───────────────────────────────────────────────── */
+.proposal-page {
+  background-color: #0f172a;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.6);
+}
+
+.service-card {
+  background-color: #0f172a;
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 0.75rem;
+  transition: background-color 300ms, border-color 300ms;
+  break-inside: avoid;
+  position: relative;
+  overflow: hidden;
+}
+.service-card:hover { background-color: #1e293b; }
+
+/* Left accent stripe via ::before */
+.service-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  height: 100%; width: 4px;
+  border-radius: 0.75rem 0 0 0.75rem;
+  background: transparent;
+  transition: background 300ms;
+}
+.service-card.accent-primary::before   { background: rgba(145,213,31,0); }
+.service-card.accent-secondary::before { background: rgba(41,182,246,0); }
+.service-card.accent-accent::before    { background: rgba(77,208,225,0); }
+.service-card.accent-primary:hover::before   { background: rgba(145,213,31,0.5); }
+.service-card.accent-secondary:hover::before { background: rgba(41,182,246,0.5); }
+.service-card.accent-accent:hover::before    { background: rgba(77,208,225,0.5); }
+
+/* ── Animations ──────────────────────────────────────────── */
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.98); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInScaleSmall {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+.anim-main    { animation: fadeInScale      0.5s ease            both; }
+.anim-heading { animation: fadeInLeft       0.5s ease 0.2s       both; }
+.anim-para    { animation: fadeIn           0.5s ease 0.3s       both; }
+.anim-card-1  { animation: fadeInUp         0.5s ease 0.1s       both; }
+.anim-card-2  { animation: fadeInUp         0.5s ease 0.2s       both; }
+.anim-card-3  { animation: fadeInUp         0.5s ease 0.3s       both; }
+.anim-card-4  { animation: fadeInUp         0.5s ease 0.4s       both; }
+.anim-card-5  { animation: fadeInUp         0.5s ease 0.5s       both; }
+.anim-step-1  { animation: fadeInScaleSmall 0.5s ease 0.6s       both; }
+.anim-step-2  { animation: fadeInScaleSmall 0.5s ease 0.7s       both; }
+.anim-step-3  { animation: fadeInScaleSmall 0.5s ease 0.8s       both; }
+.anim-step-4  { animation: fadeInScaleSmall 0.5s ease 0.9s       both; }
+.anim-step-5  { animation: fadeInScaleSmall 0.5s ease 1.0s       both; }
+.animate-pulse{ animation: pulse            2s   cubic-bezier(0.4,0,0.6,1) infinite; }
+
+/* ── Print ───────────────────────────────────────────────── */
+@media print {
+  @page { size: A4; margin: 0; }
+  body { background: #fff !important; color: #0f172a !important; }
+  .proposal-page {
+    background: #fff !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 4rem !important;
+    border-radius: 0 !important;
+    width: 210mm !important;
+    min-height: 297mm !important;
+    display: block !important;
+  }
+  .text-text-secondary, .text-text-muted { color: #475569 !important; }
+  .text-text-primary { color: #0f172a !important; }
+}
