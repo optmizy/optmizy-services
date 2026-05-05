@@ -169,7 +169,7 @@ const ContactDrawer = ({ isOpen, onClose, initialService }: { isOpen: boolean, o
                     <input 
                       required
                       type="text" 
-                      placeholder="e.g. Zahid Hasan"
+                      placeholder="e.g. John Smith"
                       className="w-full bg-bg-page/50 border border-border-subtle rounded-xl py-3 pl-10 pr-4 text-sm text-text-primary focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all outline-none hover:border-border-strong"
                       value={formState.name}
                       onChange={(e) => setFormState({ ...formState, name: e.target.value })}
@@ -184,7 +184,7 @@ const ContactDrawer = ({ isOpen, onClose, initialService }: { isOpen: boolean, o
                     <input 
                       required
                       type="email" 
-                      placeholder="zahid@example.com"
+                      placeholder="hello@example.com"
                       className="w-full bg-bg-page/50 border border-border-subtle rounded-xl py-3 pl-10 pr-4 text-sm text-text-primary focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all outline-none hover:border-border-strong"
                       value={formState.email}
                       onChange={(e) => setFormState({ ...formState, email: e.target.value })}
