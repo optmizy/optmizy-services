@@ -533,23 +533,23 @@ export default function App() {
               <div className="flex-grow h-px bg-white/5" />
             </div>
             
-            <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
               {processSteps.map((step, idx) => (
-                <motion.div 
+                <motion.div
                   key={step.title}
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.1 * idx }}
-                  className="bg-[#0c121e] border border-white/5 p-4 lg:p-6 rounded-xl flex flex-col items-start h-[180px] lg:h-[200px] w-full overflow-hidden"
+                  className="bg-[#0c121e] border border-white/5 p-4 rounded-xl flex flex-col items-center sm:items-start text-center sm:text-left"
                 >
-                  <div className={`${step.color} w-8 h-8 rounded-full flex items-center justify-center text-xs font-black text-bg-page mb-4 shadow-xl shrink-0`}>
+                  <div className={`${step.color} w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white mb-3 shadow-lg shrink-0`}>
                     {step.id}
                   </div>
-                  <h4 className="text-sm font-bold text-text-primary mb-2 leading-tight w-full">
+                  <h4 className="text-sm font-bold text-text-primary mb-1 leading-tight">
                     {step.title}
                   </h4>
-                  <p className="text-xs text-text-muted leading-relaxed font-medium opacity-60 line-clamp-3">
+                  <p className="text-[10px] sm:text-xs text-text-muted leading-relaxed">
                     {step.desc}
                   </p>
                 </motion.div>
