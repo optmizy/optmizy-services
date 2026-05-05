@@ -546,7 +546,7 @@ export default function App() {
                   <div className={`${step.color} w-8 sm:w-9 h-8 sm:h-9 rounded-full flex items-center justify-center text-xs sm:text-sm font-black text-bg-page mb-4 sm:mb-6 shadow-xl shrink-0`}>
                     {step.id}
                   </div>
-                  <h4 className="text-sm sm:text-lg font-bold text-text-primary mb-2 leading-tight w-full break-words whitespace-normal hyphens-auto">
+                  <h4 className="text-sm font-bold text-text-primary mb-2 leading-tight w-full">
                     {step.title}
                   </h4>
                   <p className="text-xs text-text-muted leading-relaxed font-medium opacity-60">
